@@ -4,7 +4,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="translate">Translate!</string>
-    <string name="type_button">Type!</string>
+    <string name="type_button">Start!</string>
     <string name="welcome_text">Welcome! Visualise your words. Build bridges and break silos.</string>
     <string name="text_input">English</string>
 </resources>

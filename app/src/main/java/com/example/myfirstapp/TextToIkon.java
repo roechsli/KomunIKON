@@ -10,7 +10,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class TextToIkon extends AppCompatActivity {
@@ -26,6 +33,35 @@ public class TextToIkon extends AppCompatActivity {
 
         configureButtons();
         setIkonsInvisible();
+    }
+
+    public String get_ikon_of(String word){
+        String json;
+        try {
+            InputStream inputStream = getAssets().open("ikons.json");
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+
+            json = new String(buffer, "UTF-8");
+            JSONArray jsonArray = new JSONObject(json).getJSONArray("data");
+            for (int i=0; i<jsonArray.length(); i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                JSONArray meanings = (JSONArray) jsonObject.get("meaning");
+                //Toast.makeText(getApplicationContext(), meanings.toString(), Toast.LENGTH_SHORT).show();
+                for (int n = 0; n < meanings.length(); n++) {
+                    String object = meanings.getString(n);
+                    if (object.equals(word)) return jsonObject.getString("filename");
+                }
+            }
+
+        } catch (IOException  e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     private void setIkonsInvisible(){
@@ -57,7 +93,6 @@ public class TextToIkon extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast messageSent = Toast.makeText(getApplicationContext(), "Message sent!", Toast.LENGTH_LONG);
-                //messageSent.setMargin(50, 50);
                 messageSent.show();
             }
         });
@@ -67,7 +102,7 @@ public class TextToIkon extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextInputEditText inputBox = (TextInputEditText) findViewById(R.id.input_box);
-                textInput = inputBox.getText().toString();
+                textInput = inputBox.getText().toString().toLowerCase();
 
                 if (ikon_count == MAX_IKON_COUNT){
                     hideKeyboard();
@@ -87,19 +122,24 @@ public class TextToIkon extends AppCompatActivity {
                     image_view_arr.add(ikon2);
                     image_view_arr.add(ikon3);
                     image_view_arr.add(ikon4);
-                    if (ikon_count < MAX_IKON_COUNT) ikon_count++;
-                    int loop_counter = 0;
-                    for (ImageView ikon : image_view_arr){
-                        ikon.setVisibility(View.VISIBLE);
-                        loop_counter++;
-                        if (loop_counter == ikon_count) break;
+                    String ikon_filename = get_ikon_of(textInput);
+                    if (!ikon_filename.equals("")) {
+                        if (ikon_count < MAX_IKON_COUNT){
+                            int res_id = getResources().getIdentifier(ikon_filename, "drawable", getPackageName());
+                            image_view_arr.get(ikon_count).setImageResource(res_id);
+                            image_view_arr.get(ikon_count).setVisibility(View.VISIBLE);
+                            ikon_count++;
+                        }
+                        inputBox.setText("");
+                    } else {
+                        Toast messageNotFound = Toast.makeText(getApplicationContext(), "Ikon not found!", Toast.LENGTH_SHORT);
+                        messageNotFound.show();
                     }
-                    inputBox.setText("");
-                }
 
-                // extract word from input
-                // display next icon
-                //
+                } else {
+                    Toast messageNoInput = Toast.makeText(getApplicationContext(), "Enter input!", Toast.LENGTH_SHORT);
+                    messageNoInput.show();
+                }
             }
         });
 
@@ -134,7 +174,7 @@ public class TextToIkon extends AppCompatActivity {
             if (inputmanager != null) {
                 inputmanager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
             }
-        } catch (Exception var2) {
+        } catch (Exception e) {
         }
 
     }

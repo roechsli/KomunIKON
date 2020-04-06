@@ -1,0 +1,25 @@
+{
+  "comment": "Sample ikons data",
+  "data": [
+    {
+      "id": "tonight",
+      "meaning": ["tonight", "night", "evening"],
+      "filename": "icon_tonight"
+    },
+    {
+      "id": "sick",
+      "meaning": ["sick", "vomit", "throw up"],
+      "filename": "icon_sick"
+    },
+    {
+      "id": "i",
+      "meaning": ["me", "i", "he"],
+      "filename": "icon_he"
+    },
+    {
+      "id": "equal",
+      "meaning": ["equal", "equals", "is", "am", "be"],
+      "filename": "icon_equal"
+    }
+  ]
+}
