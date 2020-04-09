@@ -133,8 +133,6 @@ public class TextToIkon extends AppCompatActivity {
                         finalImage = joinImages(finalImage, bmp2);
                     }
                     ikon_count = 0;
-                    // TODO here
-
                     finalSentence.setImageBitmap(finalImage);
                     finalSentence.setVisibility(View.VISIBLE);
 
