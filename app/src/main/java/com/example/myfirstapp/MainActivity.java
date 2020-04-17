@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         final Button type_button = findViewById(R.id.type_button);
         type_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, TextToIkon.class));
+                startActivity(new Intent(MainActivity.this, TextToIkonActivity.class));
 
             }
         });

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".TextToIkon">
+
+    <ImageButton
+        android:id="@+id/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logo" />
+
+    <ImageButton
+        android:id="@+id/settingsButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="0.1"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_button"
+        app:srcCompat="@drawable/cog" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/ikon_grid_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_button">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_input_hint"
+            android:completionThreshold="1"
+            />
+        <!--
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/input_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_input_hint" /> -->
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/reject_button"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="20"
+        android:background="@drawable/buttonshape_reject"
+        android:fadingEdge="horizontal"
+        android:padding="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/accept_button"
+        app:layout_constraintStart_toStartOf="@+id/ikon_grid_view"
+        app:layout_constraintTop_toBottomOf="@+id/ikon_grid_view"
+        app:srcCompat="@drawable/times_hover" />
+
+    <ImageButton
+        android:id="@+id/accept_button"
+        style="@android:style/Widget.Holo.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/buttonshape_accept"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="@+id/ikon_grid_view"
+        app:layout_constraintStart_toEndOf="@+id/reject_button"
+        app:layout_constraintTop_toBottomOf="@+id/ikon_grid_view"
+        app:srcCompat="@drawable/check_white" />
+
+
+    <GridView
+        android:id="@+id/ikon_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:columnWidth="@dimen/ikon_std_length"
+        android:numColumns="auto_fit"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/final_sentence"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+    </GridView>
+
+
+    <ImageView
+        android:id="@+id/final_sentence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/accept_button"
+        app:layout_constraintBottom_toTopOf="@+id/send_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/final_sentence"
+        tools:visibility="visible" />
+
+    <ImageButton
+        android:id="@+id/send_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_send"
+        tools:visibility="visible" />
+
+</android.support.constraint.ConstraintLayout>

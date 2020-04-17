@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -31,7 +33,8 @@ import java.util.Objects;
 public class TextToIkon extends AppCompatActivity {
     String textInput = "";
     int ikon_count = 0;
-    int MAX_IKON_COUNT = 4;
+    int MAX_IKON_COUNT = 8;
+    int MAX_IKON_PER_ROW = 4;
     ArrayList<Integer> sentenceIds = new ArrayList<>();
 
 
@@ -117,12 +120,21 @@ public class TextToIkon extends AppCompatActivity {
                 ImageView ikon2 = (ImageView) findViewById(R.id.ikon_2);
                 ImageView ikon3 = (ImageView) findViewById(R.id.ikon_3);
                 ImageView ikon4 = (ImageView) findViewById(R.id.ikon_4);
+                ImageView ikon5 = (ImageView) findViewById(R.id.ikon_5);
+                ImageView ikon6 = (ImageView) findViewById(R.id.ikon_6);
+                ImageView ikon7 = (ImageView) findViewById(R.id.ikon_7);
+                ImageView ikon8 = (ImageView) findViewById(R.id.ikon_8);
                 ImageView finalSentence = (ImageView) findViewById(R.id.final_sentence);
                 ArrayList<ImageView> image_view_arr = new ArrayList();
                 image_view_arr.add(ikon1);
                 image_view_arr.add(ikon2);
                 image_view_arr.add(ikon3);
                 image_view_arr.add(ikon4);
+                image_view_arr.add(ikon5);
+                image_view_arr.add(ikon6);
+                image_view_arr.add(ikon7);
+                image_view_arr.add(ikon8);
+
 
                 if (ikon_count == MAX_IKON_COUNT){
                     hideKeyboard();
@@ -147,6 +159,10 @@ public class TextToIkon extends AppCompatActivity {
                             image_view_arr.get(ikon_count).setVisibility(View.VISIBLE);
                             sentenceIds.add(res_id);
                             ikon_count++;
+                            if (ikon_count == MAX_IKON_PER_ROW+1){
+                                // activate second row
+                                activateSecondRow();
+                            }
                         }
                         inputBox.setText("");
                     } else {
@@ -168,13 +184,25 @@ public class TextToIkon extends AppCompatActivity {
                 ImageView ikon2 = (ImageView) findViewById(R.id.ikon_2);
                 ImageView ikon3 = (ImageView) findViewById(R.id.ikon_3);
                 ImageView ikon4 = (ImageView) findViewById(R.id.ikon_4);
+                ImageView ikon5 = (ImageView) findViewById(R.id.ikon_5);
+                ImageView ikon6 = (ImageView) findViewById(R.id.ikon_6);
+                ImageView ikon7 = (ImageView) findViewById(R.id.ikon_7);
+                ImageView ikon8 = (ImageView) findViewById(R.id.ikon_8);
                 ArrayList<ImageView> image_view_arr = new ArrayList();
                 image_view_arr.add(ikon1);
                 image_view_arr.add(ikon2);
                 image_view_arr.add(ikon3);
                 image_view_arr.add(ikon4);
+                image_view_arr.add(ikon5);
+                image_view_arr.add(ikon6);
+                image_view_arr.add(ikon7);
+                image_view_arr.add(ikon8);
                 if (ikon_count > 0) {
                     ikon_count--;
+                    if (ikon_count == MAX_IKON_PER_ROW){
+                        // deactivate second row
+                        deactivateSecondRow();
+                    }
                     sentenceIds.remove(ikon_count);
                 }
                 int loop_counter = 0;
@@ -186,6 +214,28 @@ public class TextToIkon extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void activateSecondRow(){
+        ConstraintLayout ikon_layout = (ConstraintLayout) findViewById(R.id.ikon_constraint_layout);
+
+        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                0.4f
+        );
+        ikon_layout.setLayoutParams(param);
+    }
+
+    private void deactivateSecondRow(){
+        ConstraintLayout ikon_layout = (ConstraintLayout) findViewById(R.id.ikon_constraint_layout);
+
+        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                0.2f
+        );
+        ikon_layout.setLayoutParams(param);
     }
 
     private Bitmap joinImages(Bitmap bmp1, Bitmap bmp2)

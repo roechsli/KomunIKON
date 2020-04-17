@@ -2,24 +2,76 @@
   "comment": "Sample ikons data",
   "data": [
     {
-      "id": "tonight",
-      "meaning": ["tonight", "night", "evening"],
+      "id": 0,
+      "name": "tonight",
+      "meanings": ["tonight", "night", "evening"],
       "filename": "icon_tonight"
     },
     {
-      "id": "sick",
-      "meaning": ["sick", "vomit", "throw up"],
+      "id": 1,
+      "name": "sick",
+      "meanings": ["sick", "vomit", "throw up"],
       "filename": "icon_sick"
     },
     {
-      "id": "i",
-      "meaning": ["me", "i", "he"],
+      "id": 2,
+      "name": "he",
+      "meanings": ["he", "man", "boy"],
       "filename": "icon_he"
     },
     {
-      "id": "equal",
-      "meaning": ["equal", "equals", "is", "am", "be"],
+      "id": 3,
+      "name": "equal",
+      "meanings": ["equal", "equals", "is", "am", "be"],
       "filename": "icon_equal"
+    },
+    {
+      "id": 4,
+      "name": "home",
+      "meanings": ["home", "house"],
+      "filename": "icon_home"
+    },
+    {
+      "id": 5,
+      "name": "me",
+      "meanings": ["i", "me"],
+      "filename": "icon_me"
+    },
+    {
+      "id": 6,
+      "name": "stay",
+      "meanings": ["stay", "rest"],
+      "filename": "icon_stay"
+    },
+    {
+      "id": 7,
+      "name": "stop",
+      "meanings": ["stop", "interrupt", "halt"],
+      "filename": "icon_stop"
+    },
+    {
+      "id": 8,
+      "name": "virus",
+      "meanings": ["virus"],
+      "filename": "icon_virus"
+    },
+    {
+      "id": 9,
+      "name": "no_kiss",
+      "meanings": ["dont kiss", "no kiss", "not kiss"],
+      "filename": "icon_no_kiss"
+    },
+    {
+      "id": 10,
+      "name": "no_shake_hands",
+      "meanings": ["dont shake hand", "dont shake hands", "no shake hand", "not shake hand"],
+      "filename": "icon_no_shake_hands"
+    },
+    {
+      "id": 11,
+      "name": "bow",
+      "meanings": ["do bow", "bow", "namaste"],
+      "filename": "icon_bow"
     }
   ]
 }

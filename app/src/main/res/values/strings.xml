@@ -6,5 +6,7 @@
     <string name="translate">Translate!</string>
     <string name="type_button">Start!</string>
     <string name="welcome_text">Welcome! Visualise your words. Build bridges and break silos.</string>
-    <string name="text_input">English</string>
+    <string name="text_input_hint">English</string>
+    <string name="empty_string"></string>
+    <string name="single_ikon_image">Ikon image</string>
 </resources>
