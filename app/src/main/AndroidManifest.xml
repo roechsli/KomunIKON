@@ -12,19 +12,19 @@
         <activity
             android:name=".SampleSentencesActivity"
             android:label="@string/sample_sentences"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".TextToIkonActivity"
-            android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".TextToIkon" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
         </activity>
     </application>
 

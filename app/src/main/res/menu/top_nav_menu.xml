@@ -8,24 +8,26 @@
         android:icon="@drawable/ic_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Home"
+        android:title="@string/title_home"
         android:background="#FFFFFF"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         />
-    <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
-
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/about_us"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="@string/title_about"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/sample_sentences"
         android:icon="@android:drawable/ic_dialog_dialer"
-        android:title="@string/sample_sentences" />
+        android:title="@string/sample_sentences"
+        app:showAsAction="never" />
 
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/cog"
+        android:title="@string/settings"
+        app:showAsAction="never" />
 </menu>
