@@ -49,6 +49,7 @@ public class GridAdapter extends BaseAdapter {
             ImageView ikonImage = (ImageView) view.findViewById(R.id.ikonImageView);
             TextView ikonText = (TextView) view.findViewById(R.id.ikonTextView);
             ikonImage.setImageResource(images.get(i));
+            ikonImage.setAdjustViewBounds(true);
             ikonText.setText(values.get(i));
         }
         return view;

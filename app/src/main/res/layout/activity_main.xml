@@ -171,7 +171,6 @@
                                 android:layout_gravity="center"
                                 android:layout_weight="49"
                                 android:background="#FFFFFF"
-                                android:onClick="startCamera"
                                 android:src="@drawable/komunikon_language"
                                 android:text="@string/translate"
                                 tools:layout_editor_absoluteX="282dp"

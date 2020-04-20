@@ -7,6 +7,7 @@
     android:padding="20dp"
     tools:context=".TextToIkon">
 
+
     <ImageButton
         android:id="@+id/home_button"
         android:layout_width="wrap_content"
@@ -23,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_weight="0.1"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/home_button"
@@ -33,7 +33,6 @@
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/ikon_grid_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,15 +42,8 @@
             android:id="@+id/autoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/text_input_hint"
             android:completionThreshold="1"
-            />
-        <!--
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/input_box"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/text_input_hint" /> -->
+            android:hint="@string/text_input_hint" />
     </android.support.design.widget.TextInputLayout>
 
     <ImageButton
@@ -86,10 +78,6 @@
         android:id="@+id/ikon_grid_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
         android:columnWidth="@dimen/ikon_std_length"
         android:numColumns="auto_fit"
         android:padding="8dp"

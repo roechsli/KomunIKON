@@ -82,10 +82,14 @@ public class IkonAdapter extends ArrayAdapter<Ikon> {
             if (charSequence != null) {
                 suggestions.clear();
                 for (Ikon ikon: tempItems) {
-                    if (ikon.getName().toLowerCase().startsWith(charSequence.toString().toLowerCase())) {
-                        suggestions.add(ikon);
+                    for (String meaning: ikon.getMeanings()){
+                        if (meaning.toLowerCase().startsWith(charSequence.toString().toLowerCase())) {
+                            suggestions.add(ikon);
+                            break;
+                        }
                     }
-                }FilterResults filterResults = new FilterResults();
+                }
+                FilterResults filterResults = new FilterResults();
                 filterResults.values = suggestions;
                 filterResults.count = suggestions.size();
                 return filterResults;
