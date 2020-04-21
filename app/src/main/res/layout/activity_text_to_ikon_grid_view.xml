@@ -5,43 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".TextToIkon">
+    tools:context=".TextToIkonActivity">
 
-
-    <ImageButton
-        android:id="@+id/home_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo" />
-
-    <ImageButton
-        android:id="@+id/settingsButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/home_button"
-        app:srcCompat="@drawable/cog" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/ikon_grid_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_button">
+        app:layout_constraintTop_toTopOf="parent">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:dropDownAnchor="@id/ikon_grid_view"
             android:completionThreshold="1"
             android:hint="@string/text_input_hint" />
     </android.support.design.widget.TextInputLayout>
@@ -85,7 +64,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
-
     </GridView>
 
 
