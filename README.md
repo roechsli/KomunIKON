@@ -4,4 +4,4 @@ See an in use video of the app below:
 
 ![](Documentation/Versusvirus_Theteam.jpg)
 
-![](KomunIKON.gif)
+![](KomunIKON_v2.gif)
