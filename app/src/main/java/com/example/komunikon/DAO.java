@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.komunikon;
 
 import java.util.List;
 import java.util.Optional;

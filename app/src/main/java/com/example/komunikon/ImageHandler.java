@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.komunikon;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

@@ -1,8 +1,7 @@
-package com.example.myfirstapp;
+package com.example.komunikon;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.komunikon;
 
 import android.content.Context;
 
@@ -10,6 +10,7 @@ public class Ikon {
     private String name;
     private List<String> meanings;
     private String filename;
+    private String matchedWord;
 
     public Ikon(Context context, long id, String name, List<String> meanings, String filename) {
         this.context = context;
@@ -17,6 +18,7 @@ public class Ikon {
         this.name = name;
         this.meanings = meanings;
         this.filename = filename;
+        this.matchedWord = "";
     }
 
     public long getId() {
@@ -53,5 +55,13 @@ public class Ikon {
 
     public int getImage(){
         return context.getResources().getIdentifier(this.filename, "drawable", context.getPackageName());
+    }
+
+    public String getMatchedWord() {
+        return matchedWord;
+    }
+
+    public void setMatchedWord(String matchedWord) {
+        this.matchedWord = matchedWord;
     }
 }

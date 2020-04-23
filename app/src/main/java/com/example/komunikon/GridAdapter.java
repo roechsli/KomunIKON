@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.komunikon;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -41,16 +41,16 @@ public class GridAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View convertView, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup viewGroup) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (convertView == null){
             view = new View(context);
             view = layoutInflater.inflate(R.layout.single_ikon, null);
             ImageView ikonImage = (ImageView) view.findViewById(R.id.ikonImageView);
             TextView ikonText = (TextView) view.findViewById(R.id.ikonTextView);
-            ikonImage.setImageResource(images.get(i));
+            ikonImage.setImageResource(images.get(position));
             ikonImage.setAdjustViewBounds(true);
-            ikonText.setText(values.get(i));
+            ikonText.setText(values.get(position));
         }
         return view;
     }

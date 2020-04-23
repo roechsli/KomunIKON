@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myfirstapp">
+    package="com.example.komunikon">
 
     <application
         android:allowBackup="true"
@@ -11,8 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SampleSentencesActivity"
-            android:label="@string/sample_sentences"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:label="@string/sample_sentences"/>
         <activity
             android:name=".TextToIkonActivity"
             android:windowSoftInputMode="adjustResize">

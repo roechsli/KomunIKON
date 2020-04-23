@@ -22,7 +22,7 @@
     {
       "id": 3,
       "name": "equal",
-      "meanings": ["equal", "equals", "is", "am", "be"],
+      "meanings": ["equal", "equals", "is", "am", "be", "are"],
       "filename": "icon_equal"
     },
     {

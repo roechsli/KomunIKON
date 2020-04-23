@@ -1,15 +1,13 @@
-package com.example.myfirstapp;
+package com.example.komunikon;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatAutoCompleteTextView;
+import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,12 +15,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -38,7 +34,6 @@ import java.util.Objects;
 public class TextToIkonActivity extends AppCompatActivity {
     private List<Integer> images = new ArrayList<Integer>();
     private List<String> values = new ArrayList<String>();
-    String textInput = "";
     int MAX_IKON_COUNT = 6;
     private AutoCompleteTextView autoTextView;
     private IkonAdapter ikonAdapter;

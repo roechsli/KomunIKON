@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.komunikon;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,9 +41,25 @@ public class IkonAdapter extends ArrayAdapter<Ikon> {
             }
             Ikon ikon = getItem(position);
             TextView name = (TextView) view.findViewById(R.id.textView);
+            name.setText(ikon.getName());
+
             ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
             imageView.setImageResource(ikon.getImage());
-            name.setText(ikon.getName());
+
+            String inputStr = ikon.getMatchedWord();
+            TextView suggestion = (TextView) view.findViewById(R.id.textViewSuggestion);
+
+            String suggestionStr = "";
+            for (String meaning: ikon.getMeanings()){
+                if (meaning.startsWith(inputStr)){
+                    suggestionStr = meaning.substring(inputStr.length());
+                    break;
+                }
+            }
+
+
+            suggestion.setText(": ("+inputStr+suggestionStr+")");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -80,10 +97,12 @@ public class IkonAdapter extends ArrayAdapter<Ikon> {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
             if (charSequence != null) {
+                String inputWord = charSequence.toString().toLowerCase();
                 suggestions.clear();
                 for (Ikon ikon: tempItems) {
                     for (String meaning: ikon.getMeanings()){
-                        if (meaning.toLowerCase().startsWith(charSequence.toString().toLowerCase())) {
+                        if (meaning.toLowerCase().startsWith(inputWord)) {
+                            ikon.setMatchedWord(inputWord);
                             suggestions.add(ikon);
                             break;
                         }
