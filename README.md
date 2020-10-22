@@ -5,3 +5,7 @@ See an in use video of the app below:
 ![](Documentation/Versusvirus_Theteam.jpg)
 
 ![](komunIKON_v2.gif)
+
+# MVP October 2020
+
+![](2020_mvp.gif)
